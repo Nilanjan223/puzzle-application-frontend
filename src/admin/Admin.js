@@ -60,7 +60,7 @@ const Admin = () => {
                 <td key={item.email}>{item.email}</td>
                 {item.stage === 6 ? <td>COMPLETED</td> : <td>{item.stage}</td>}
                 <td>{item.hint}</td>
-                <td>{((5 - item.hint) / 5) * 100}%</td>
+                {item.stage === 6 ? <td>{((5 - item.hint) / 5) * 100}%</td>:<td>NOT COMPLETED</td>}
               </tr>
             );
           })}
