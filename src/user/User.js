@@ -31,7 +31,8 @@ const User = () => {
       try {
         // console.log("here");
         const response = await fetch(
-          `http://localhost:5000/api/user/${auth.userId}`
+          process.env.REACT_APP_BACKEND_URL +
+          `/api/user/${auth.userId}`
         );
         const responseData = await response.json();
         // console.log(responseData);
@@ -56,7 +57,7 @@ const User = () => {
 
   const saveHandler = async () => {
     try {
-      await fetch(`http://localhost:5000/api/user/${auth.userId}`, {
+      await fetch(process.env.REACT_APP_BACKEND_URL +`/api/user/${auth.userId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
